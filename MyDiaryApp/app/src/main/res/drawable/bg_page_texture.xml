@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 底层：从页面顶部到底部的柔和渐变，比纯色背景多一点层次 -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="@color/paper_bg_top"
+                android:endColor="@color/paper_bg" />
+        </shape>
+    </item>
+    <!-- 上层：极淡的点阵纹理，像笔记本纸一样有质感，透明度很低不影响阅读 -->
+    <item>
+        <bitmap
+            android:src="@drawable/bg_dot_tile"
+            android:tileModeX="repeat"
+            android:tileModeY="repeat" />
+    </item>
+</layer-list>

@@ -1,0 +1,30 @@
+<resources>
+    <!-- 背景：温暖的纸张色 -->
+    <color name="paper_bg">#FBF7F0</color>
+    <color name="paper_bg_top">#FFFEFB</color>
+
+    <!-- 主色：墨蓝灰 -->
+    <color name="ink_primary">#33485C</color>
+    <color name="ink_primary_dark">#22333F</color>
+
+    <!-- 模块强调色：知识=深鼠尾草绿，日记=深陈纸金，更沉稳内敛 -->
+    <color name="knowledge_accent">#5F7A68</color>
+    <color name="knowledge_accent_light">#E4EBE4</color>
+    <color name="diary_accent">#A67C3D</color>
+    <color name="diary_accent_light">#F3E7D3</color>
+
+    <color name="card_bg">#FFFFFF</color>
+    <color name="divider">#EDE6D9</color>
+    <color name="nav_indicator">#F1ECE1</color>
+
+    <color name="text_primary">#2B2420</color>
+    <color name="text_secondary">#8A8078</color>
+    <color name="text_tertiary">#B5AC9F</color>
+
+    <color name="danger">#C0564F</color>
+
+    <color name="search_highlight">#F5E7A3</color>
+    <color name="search_highlight_current">#E8C34A</color>
+
+    <color name="white">#FFFFFF</color>
+</resources>

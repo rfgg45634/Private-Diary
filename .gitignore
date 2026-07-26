@@ -1,0 +1,28 @@
+# Android 编译产物
+app/build/
+build/
+*/build/
+*.apk
+*.aab
+app/release/
+
+# Android Studio 配置
+.idea/
+*.iml
+local.properties
+.gradle/
+gradle/.tmp
+
+# 密钥文件
+*.jks
+*.keystore
+*.p12
+
+# 日志、缓存
+*.log
+*/build/reports/
+*/build/outputs/
+
+# 系统文件
+.DS_Store
+Thumbs.db

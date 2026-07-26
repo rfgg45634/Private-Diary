@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/knowledgeFragment"
+        android:icon="@drawable/ic_knowledge"
+        android:title="知识" />
+    <item
+        android:id="@+id/diaryFragment"
+        android:icon="@drawable/ic_diary"
+        android:title="日记" />
+</menu>

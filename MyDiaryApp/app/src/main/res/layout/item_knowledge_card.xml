@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="7dp"
+    app:cardBackgroundColor="@color/card_bg"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/knowledge_accent" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="-10dp"
+                android:layout_marginBottom="-10dp"
+                android:alpha="0.06"
+                android:src="@drawable/ic_knowledge"
+                app:tint="@color/knowledge_accent"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="36dp"
+                android:paddingTop="26dp"
+                android:paddingBottom="26dp"
+                android:gravity="center"
+                android:fontFamily="serif"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <ImageView
+                android:id="@+id/dragHandle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="14dp"
+                android:alpha="0.45"
+                android:src="@drawable/ic_drag_handle"
+                android:contentDescription="@string/drag_handle_desc" />
+
+        </FrameLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

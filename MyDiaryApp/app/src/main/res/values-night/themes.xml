@@ -1,0 +1,22 @@
+<resources>
+    <style name="Theme.MyDiary" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ink_primary</item>
+        <item name="colorOnPrimary">#121212</item>
+        <item name="colorSecondary">@color/knowledge_accent</item>
+        <item name="colorSecondaryContainer">@color/nav_indicator</item>
+        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+
+        <!-- 背景与卡片使用我们自定义的色调 -->
+        <item name="android:windowBackground">@color/paper_bg</item>
+        <item name="colorSurface">@color/card_bg</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- 文本列表优化 -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- 状态栏：暗色主题下状态栏文字设为浅色 -->
+        <item name="android:statusBarColor">@color/paper_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
