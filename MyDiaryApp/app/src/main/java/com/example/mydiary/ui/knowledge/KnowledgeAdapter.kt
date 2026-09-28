@@ -3,6 +3,7 @@ package com.example.mydiary.ui.knowledge
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -60,6 +61,15 @@ class KnowledgeAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = items[position]
         holder.binding.titleText.text = DateUtils.displayTitle(note.title, note.createdTime)
+        holder.binding.dateText.text = DateUtils.formatMonthDay(note.createdTime)
+        // 正文预览：去掉居中标记、换行，只留一行；正文为空时隐藏预览行
+        val preview = note.content.replace("[c]", "").replace("\n", " ").trim()
+        if (preview.isBlank()) {
+            holder.binding.previewText.visibility = View.GONE
+        } else {
+            holder.binding.previewText.visibility = View.VISIBLE
+            holder.binding.previewText.text = preview
+        }
     }
 
     override fun getItemCount(): Int = items.size

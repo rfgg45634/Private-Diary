@@ -8,10 +8,25 @@ object DateUtils {
 
     private val fullFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
     private val tagFormat = SimpleDateFormat("MM-dd HH:mm", Locale.getDefault())
+    private val dayNumberFormat = SimpleDateFormat("d", Locale.getDefault())
+    private val monthLabelFormat = SimpleDateFormat("M月", Locale.getDefault())
+    private val weekdayFormat = SimpleDateFormat("E", Locale.getDefault())
 
     fun formatFull(timestamp: Long): String = fullFormat.format(Date(timestamp))
 
     fun formatTag(timestamp: Long): String = tagFormat.format(Date(timestamp))
+
+    /** 日记卡片左侧大号的「日」数字，如 28 */
+    fun formatDayNumber(timestamp: Long): String = dayNumberFormat.format(Date(timestamp))
+
+    private val monthDayFormat = SimpleDateFormat("M月d日", Locale.getDefault())
+
+    /** 知识卡片底部的小字日期，如 9月28日 */
+    fun formatMonthDay(timestamp: Long): String = monthDayFormat.format(Date(timestamp))
+
+    /** 日记卡片日期块下方的「月 + 星期」小字，如 9月 周一 */
+    fun formatMonthWeekday(timestamp: Long): String =
+        monthLabelFormat.format(Date(timestamp)) + " " + weekdayFormat.format(Date(timestamp))
 
     /** 卡片显示的标题：用户未定义标题时，用创建时间代替 */
     fun displayTitle(title: String?, createdTime: Long): String {
@@ -60,5 +75,10 @@ object DateUtils {
             cursor -= oneDayMillis
         }
         return streak
+    }
+
+    /** 累计记录了多少个不同的日子（同一天写多条只算一天） */
+    fun countDistinctDays(createdTimes: List<Long>): Int {
+        return createdTimes.map { startOfDay(it) }.toHashSet().size
     }
 }

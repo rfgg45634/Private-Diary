@@ -2,67 +2,94 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="7dp"
+    android:layout_marginVertical="8dp"
     app:cardBackgroundColor="@color/card_bg"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="3dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="14dp">
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/knowledge_accent" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top"
+            android:paddingEnd="40dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <!-- 左侧图标章：浅绿圆角方块 + 书本图标 -->
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_knowledge_chip">
 
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="-10dp"
-                android:layout_marginBottom="-10dp"
-                android:alpha="0.06"
-                android:src="@drawable/ic_knowledge"
-                app:tint="@color/knowledge_accent"
-                android:contentDescription="@null" />
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_knowledge"
+                    app:tint="@color/knowledge_accent"
+                    android:contentDescription="@null" />
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingHorizontal="36dp"
-                android:paddingTop="26dp"
-                android:paddingBottom="26dp"
-                android:gravity="center"
-                android:fontFamily="serif"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:maxLines="1"
-                android:ellipsize="end" />
+                android:layout_marginStart="14dp"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/dragHandle"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="top|end"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="14dp"
-                android:alpha="0.45"
-                android:src="@drawable/ic_drag_handle"
-                android:contentDescription="@string/drag_handle_desc" />
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
 
-        </FrameLayout>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/previewText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:visibility="gone"
+                    tools:text="正文预览第一行…" />
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:textSize="11sp"
+                    android:textColor="@color/knowledge_accent"
+                    tools:text="9月28日" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dragHandle"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp"
+            android:alpha="0.4"
+            android:src="@drawable/ic_drag_handle"
+            android:contentDescription="@string/drag_handle_desc" />
+
+    </FrameLayout>
 </com.google.android.material.card.MaterialCardView>

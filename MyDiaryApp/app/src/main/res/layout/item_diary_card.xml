@@ -3,145 +3,109 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="7dp"
+    android:layout_marginVertical="8dp"
 
     app:cardBackgroundColor="@color/card_bg"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="3dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
-
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp">
 
-        android:orientation="vertical">
-
-
-        <View
-
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-
-            android:background="@color/diary_accent" />
-
-
-
+        <!-- 左侧日期块：包在浅金圆角方块里，和知识卡片的图标章风格统一 -->
         <FrameLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="-10dp"
-                android:layout_marginBottom="-10dp"
-                android:alpha="0.07"
-                android:src="@drawable/ic_diary"
-                app:tint="@color/diary_accent"
-                android:contentDescription="@null" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_diary_chip">
 
             <LinearLayout
-
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_gravity="center"
                 android:orientation="vertical"
-                android:gravity="center_horizontal"
-
-                android:paddingHorizontal="36dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="14dp">
-
+                android:gravity="center_horizontal">
 
                 <TextView
-
-                    android:id="@+id/titleText"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:gravity="center"
-
-                    android:fontFamily="serif"
-
-                    android:textSize="17sp"
-
-                    android:textStyle="bold"
-
-                    android:textColor="@color/text_primary"
-
-                    android:maxLines="1"
-
-                    android:ellipsize="end" />
-
-
-
-                <LinearLayout
-
+                    android:id="@+id/dayNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/diary_accent"
+                    tools:text="28" />
 
-                    android:layout_marginTop="6dp"
-
-                    android:orientation="horizontal"
-
-                    android:gravity="center_vertical"
-
-                    android:background="@drawable/bg_time_tag"
-
-                    android:paddingStart="10dp"
-                    android:paddingEnd="12dp"
-
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp">
-
-
-
-                    <ImageView
-
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-
-                        android:src="@drawable/ic_clock"
-                        app:tint="@color/diary_accent"
-
-                        android:contentDescription="@null" />
-
-
-
-                    <TextView
-
-                        android:id="@+id/timeTag"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginStart="5dp"
-
-                        android:textSize="11sp"
-
-                        android:textColor="@color/diary_accent" />
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:id="@+id/monthLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textSize="9sp"
+                    android:textColor="@color/text_secondary"
+                    tools:text="9月 周一" />
             </LinearLayout>
-
-
         </FrameLayout>
 
+        <!-- 右侧：标题 + 时间标签 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_time_tag"
+                android:paddingStart="8dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="11dp"
+                    android:src="@drawable/ic_clock"
+                    app:tint="@color/diary_accent"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/timeTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="11sp"
+                    android:textColor="@color/diary_accent" />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-
 
 </com.google.android.material.card.MaterialCardView>

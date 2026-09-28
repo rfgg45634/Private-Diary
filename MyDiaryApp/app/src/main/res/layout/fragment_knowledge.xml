@@ -64,7 +64,13 @@
                 android:layout_width="36dp"
                 android:layout_height="3dp"
                 android:layout_marginTop="12dp"
-                android:background="@color/knowledge_accent" />
+                android:background="@drawable/bg_accent_pill_knowledge" />
+
+            <!-- 占位：和日记头部的连续天数标签等高，保证左右切换时头部不错位 -->
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -230,14 +236,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!--
-        知识模块没有翻页栏，但日记模块底部有一个 48dp 高的翻页栏。
+        知识模块没有翻页栏，但日记模块底部有一个 46dp 高的翻页胶囊外加 14dp 下边距。
         这里补一个同样高度的隐形占位区，让两个模块的悬浮按钮停在同一个高度，
         左右滑动切换模块时悬浮按钮就不会一高一低地跳动了。
     -->
     <View
         android:id="@+id/bottomSpacer"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

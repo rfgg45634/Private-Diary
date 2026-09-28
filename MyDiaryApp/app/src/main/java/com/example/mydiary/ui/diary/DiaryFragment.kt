@@ -92,15 +92,9 @@ class DiaryFragment : Fragment() {
             binding.btnSortOrder.rotation = if (ascending) 180f else 0f
         }
 
-        // 连续记录天数
-        viewModel.streakDays.observe(viewLifecycleOwner) { days ->
-            if (days >= 2) {
-                binding.streakText.visibility = View.VISIBLE
-                binding.streakText.text = getString(R.string.streak_format, days)
-            } else {
-                binding.streakText.visibility = View.GONE
-            }
-        }
+        // 连续天数 + 累计天数：常驻显示，断签也不至于整块消失
+        viewModel.streakDays.observe(viewLifecycleOwner) { updateStreakChip() }
+        viewModel.totalDays.observe(viewLifecycleOwner) { updateStreakChip() }
 
         binding.fabAdd.setOnClickListener {
             viewModel.addNewDiary { id ->
@@ -108,10 +102,11 @@ class DiaryFragment : Fragment() {
             }
         }
 
-        // 切换日夜间模式
+        // 切换日夜间模式（当前是夜间就显示太阳，表示点一下切回白天）
         binding.btnThemeToggle.setOnClickListener {
             toggleNightMode()
         }
+        updateThemeIcon()
 
         // 打开回收站
         binding.btnRecycleBin.setOnClickListener {
@@ -149,6 +144,24 @@ class DiaryFragment : Fragment() {
         binding.searchInput.setText("")
         binding.searchBar.visibility = View.GONE
         viewModel.clearSearch()
+    }
+
+    /** 有记录就常驻显示：在连续就显示连续+累计，断签了也只显示累计，不留空 */
+    private fun updateStreakChip() {
+        val total = viewModel.totalDays.value ?: 0
+        if (total <= 0) {
+            // 没有记录时保持占位（INVISIBLE），头部高度才不会因为标签消失而塌下来
+            binding.streakText.text = ""
+            binding.streakText.visibility = View.INVISIBLE
+            return
+        }
+        binding.streakText.visibility = View.VISIBLE
+        val streak = viewModel.streakDays.value ?: 0
+        binding.streakText.text = if (streak >= 1) {
+            getString(R.string.streak_and_total_format, streak, total)
+        } else {
+            getString(R.string.total_days_format, total)
+        }
     }
 
     private fun updateEmptyView(isEmpty: Boolean) {
@@ -191,6 +204,14 @@ class DiaryFragment : Fragment() {
         }
         prefs.edit().putInt("night_mode", newMode).apply()
         AppCompatDelegate.setDefaultNightMode(newMode)
+    }
+
+    /** 夜间模式下显示太阳图标（提示可切回白天），白天显示月牙图标 */
+    private fun updateThemeIcon() {
+        val isNight = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        binding.btnThemeToggle.setImageResource(
+            if (isNight) R.drawable.ic_sun else R.drawable.ic_theme_toggle
+        )
     }
 
     override fun onResume() {

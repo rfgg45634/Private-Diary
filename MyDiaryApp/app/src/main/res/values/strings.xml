@@ -36,11 +36,12 @@
 
     <string name="search_desc">搜索</string>
     <string name="close_search_desc">关闭搜索</string>
-    <string name="search_hint_knowledge">按标题搜索知识…</string>
-    <string name="search_hint_diary">按标题搜索日记…</string>
+    <string name="search_hint_knowledge">搜索标题或正文…</string>
+    <string name="search_hint_diary">搜索标题或正文…</string>
     <string name="search_no_result_title">没有找到匹配的内容</string>
     <string name="search_no_result_desc">换个关键词试试</string>
-    <string name="streak_format">🔥 已连续记录 %1$d 天</string>
+    <string name="streak_and_total_format">🔥 连续 %1$d 天 · 累计 %2$d 天</string>
+    <string name="total_days_format">📅 累计记录 %1$d 天</string>
     <string name="swipe_deleted_tip">已移入回收站</string>
     <string name="undo">撤销</string>
     <string name="word_count_format">共 %1$d 字</string>

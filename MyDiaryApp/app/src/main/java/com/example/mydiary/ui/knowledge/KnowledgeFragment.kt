@@ -75,6 +75,7 @@ class KnowledgeFragment : Fragment() {
         binding.btnThemeToggle.setOnClickListener {
             toggleNightMode()
         }
+        updateThemeIcon()
 
         // 打开回收站
         binding.btnRecycleBin.setOnClickListener {
@@ -154,6 +155,14 @@ class KnowledgeFragment : Fragment() {
         }
         prefs.edit().putInt("night_mode", newMode).apply()
         AppCompatDelegate.setDefaultNightMode(newMode)
+    }
+
+    /** 夜间模式下显示太阳图标（提示可切回白天），白天显示月牙图标 */
+    private fun updateThemeIcon() {
+        val isNight = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        binding.btnThemeToggle.setImageResource(
+            if (isNight) R.drawable.ic_sun else R.drawable.ic_theme_toggle
+        )
     }
 
     override fun onDestroyView() {

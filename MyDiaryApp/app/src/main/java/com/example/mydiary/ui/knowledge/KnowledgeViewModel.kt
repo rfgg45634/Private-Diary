@@ -29,6 +29,7 @@ class KnowledgeViewModel(private val repository: NoteRepository) : ViewModel() {
             } else {
                 all.filter { note ->
                     DateUtils.displayTitle(note.title, note.createdTime).contains(query, ignoreCase = true)
+                        || note.content.contains(query, ignoreCase = true)
                 }
             }
         }

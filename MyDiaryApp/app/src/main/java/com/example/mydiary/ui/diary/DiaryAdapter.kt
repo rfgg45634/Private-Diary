@@ -44,6 +44,8 @@ class DiaryAdapter(
         val note = items[position]
         holder.binding.titleText.text = DateUtils.displayTitle(note.title, note.createdTime)
         holder.binding.timeTag.text = DateUtils.formatTag(note.createdTime)
+        holder.binding.dayNumber.text = DateUtils.formatDayNumber(note.createdTime)
+        holder.binding.monthLabel.text = DateUtils.formatMonthWeekday(note.createdTime)
     }
 
     override fun getItemCount(): Int = items.size

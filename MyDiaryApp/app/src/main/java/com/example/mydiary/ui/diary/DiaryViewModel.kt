@@ -31,6 +31,9 @@ class DiaryViewModel(private val repository: NoteRepository) : ViewModel() {
     private val _streakDays = MutableLiveData(0)
     val streakDays: LiveData<Int> = _streakDays
 
+    private val _totalDays = MutableLiveData(0)
+    val totalDays: LiveData<Int> = _totalDays
+
     // ---------- 搜索 ----------
     private val _searchQuery = MutableLiveData("")
     val searchQuery: LiveData<String> = _searchQuery
@@ -57,6 +60,7 @@ class DiaryViewModel(private val repository: NoteRepository) : ViewModel() {
             val all = repository.getAllDiaryNotes(_sortAscending.value ?: false)
             _searchResults.value = all.filter { note ->
                 DateUtils.displayTitle(note.title, note.createdTime).contains(query, ignoreCase = true)
+                    || note.content.contains(query, ignoreCase = true)
             }
         }
     }
@@ -69,7 +73,9 @@ class DiaryViewModel(private val repository: NoteRepository) : ViewModel() {
 
     private fun refreshStreak() {
         viewModelScope.launch {
-            _streakDays.value = DateUtils.calculateStreak(repository.getAllDiaryCreatedTimes())
+            val times = repository.getAllDiaryCreatedTimes()
+            _streakDays.value = DateUtils.calculateStreak(times)
+            _totalDays.value = DateUtils.countDistinctDays(times)
         }
     }
 
