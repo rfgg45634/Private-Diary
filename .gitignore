@@ -2,9 +2,11 @@
 app/build/
 build/
 */build/
+**/build/
 *.apk
 *.aab
 app/release/
+**/app/release/
 
 # Android Studio 配置
 .idea/

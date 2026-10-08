@@ -1,5 +1,6 @@
 package com.example.mydiary.util
 
+import com.example.mydiary.R
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -80,5 +81,44 @@ object DateUtils {
     /** 累计记录了多少个不同的日子（同一天写多条只算一天） */
     fun countDistinctDays(createdTimes: List<Long>): Int {
         return createdTimes.map { startOfDay(it) }.toHashSet().size
+    }
+
+    /** 按每月几号返回对应的装饰图标资源（1~31 各一个） */
+    fun dayIconRes(timestamp: Long): Int {
+        val day = java.util.Calendar.getInstance().apply { timeInMillis = timestamp }
+            .get(java.util.Calendar.DAY_OF_MONTH)
+        return when (day) {
+            1 -> R.drawable.day_01
+            2 -> R.drawable.day_02
+            3 -> R.drawable.day_03
+            4 -> R.drawable.day_04
+            5 -> R.drawable.day_05
+            6 -> R.drawable.day_06
+            7 -> R.drawable.day_07
+            8 -> R.drawable.day_08
+            9 -> R.drawable.day_09
+            10 -> R.drawable.day_10
+            11 -> R.drawable.day_11
+            12 -> R.drawable.day_12
+            13 -> R.drawable.day_13
+            14 -> R.drawable.day_14
+            15 -> R.drawable.day_15
+            16 -> R.drawable.day_16
+            17 -> R.drawable.day_17
+            18 -> R.drawable.day_18
+            19 -> R.drawable.day_19
+            20 -> R.drawable.day_20
+            21 -> R.drawable.day_21
+            22 -> R.drawable.day_22
+            23 -> R.drawable.day_23
+            24 -> R.drawable.day_24
+            25 -> R.drawable.day_25
+            26 -> R.drawable.day_26
+            27 -> R.drawable.day_27
+            28 -> R.drawable.day_28
+            29 -> R.drawable.day_29
+            30 -> R.drawable.day_30
+            else -> R.drawable.day_31
+        }
     }
 }

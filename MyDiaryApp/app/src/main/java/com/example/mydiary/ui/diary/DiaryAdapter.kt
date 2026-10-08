@@ -46,6 +46,7 @@ class DiaryAdapter(
         holder.binding.timeTag.text = DateUtils.formatTag(note.createdTime)
         holder.binding.dayNumber.text = DateUtils.formatDayNumber(note.createdTime)
         holder.binding.monthLabel.text = DateUtils.formatMonthWeekday(note.createdTime)
+        holder.binding.dayIcon.setImageResource(DateUtils.dayIconRes(note.createdTime))
     }
 
     override fun getItemCount(): Int = items.size

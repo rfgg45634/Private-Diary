@@ -24,11 +24,18 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="14dp">
 
-        <!-- 左侧日期块：包在浅金圆角方块里，和知识卡片的图标章风格统一 -->
+        <!-- 左侧日期块：大号日图案做背景，日期数字压在上面 -->
         <FrameLayout
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:background="@drawable/bg_diary_chip">
+
+            <ImageView
+                android:id="@+id/dayIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -44,7 +51,11 @@
                     android:fontFamily="serif"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="@color/diary_accent"
+                    android:textColor="@color/white"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="4"
                     tools:text="28" />
 
                 <TextView
@@ -53,7 +64,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:textSize="9sp"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="#FFFFFF"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="4"
                     tools:text="9月 周一" />
             </LinearLayout>
         </FrameLayout>
@@ -76,6 +91,25 @@
                 android:textColor="@color/text_primary"
                 android:maxLines="1"
                 android:ellipsize="end" />
+
+            <!-- 标题下淡金小装饰线 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:background="@drawable/bg_knowledge_dot"
+                    android:backgroundTint="@color/diary_accent" />
+                <View
+                    android:layout_width="32dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@color/diary_accent" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

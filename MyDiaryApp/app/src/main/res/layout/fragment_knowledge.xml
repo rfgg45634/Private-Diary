@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_page_texture">
+    android:background="@drawable/bg_knowledge_page">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -60,17 +60,32 @@
                 android:textStyle="bold"
                 android:textColor="@color/text_primary" />
 
-            <View
-                android:layout_width="36dp"
-                android:layout_height="3dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_accent_pill_knowledge" />
-
-            <!-- 占位：和日记头部的连续天数标签等高，保证左右切换时头部不错位 -->
-            <View
+            <!-- 头部装饰：细线夹小菱形，和卡片风格呼应 -->
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_marginTop="10dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View
+                    android:layout_width="18dp"
+                    android:layout_height="1dp"
+                    android:background="@color/knowledge_accent" />
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:src="@drawable/ic_diamond"
+                    app:tint="@color/knowledge_accent"
+                    android:contentDescription="@null" />
+
+                <View
+                    android:layout_width="18dp"
+                    android:layout_height="1dp"
+                    android:background="@color/knowledge_accent" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

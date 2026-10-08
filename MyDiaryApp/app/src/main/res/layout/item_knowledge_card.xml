@@ -2,7 +2,6 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
@@ -14,80 +13,87 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="14dp">
+        android:layout_height="wrap_content">
 
+        <!-- 四角小角花，不抢标题 -->
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="top|start"
+            android:alpha="0.7"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ornament_corner_tl"
+            android:contentDescription="@null" />
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="top|end"
+            android:alpha="0.7"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ornament_corner_tr"
+            android:contentDescription="@null" />
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom|start"
+            android:alpha="0.7"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ornament_corner_bl"
+            android:contentDescription="@null" />
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom|end"
+            android:alpha="0.7"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ornament_corner_br"
+            android:contentDescription="@null" />
+
+        <!-- 居中标题 + 下方小装饰线 -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="top"
-            android:paddingEnd="40dp">
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="56dp"
+            android:layout_marginVertical="20dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-            <!-- 左侧图标章：浅绿圆角方块 + 书本图标 -->
-            <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/bg_knowledge_chip">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_knowledge"
-                    app:tint="@color/knowledge_accent"
-                    android:contentDescription="@null" />
-            </FrameLayout>
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:maxLines="2"
+                android:ellipsize="end" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/titleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:maxLines="1"
-                    android:ellipsize="end" />
-
-                <TextView
-                    android:id="@+id/previewText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_secondary"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:visibility="gone"
-                    tools:text="正文预览第一行…" />
-
-                <TextView
-                    android:id="@+id/dateText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:textSize="11sp"
-                    android:textColor="@color/knowledge_accent"
-                    tools:text="9月28日" />
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <View android:layout_width="20dp" android:layout_height="1dp" android:background="@color/knowledge_accent" />
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginHorizontal="6dp"
+                    android:src="@drawable/ic_diamond"
+                    app:tint="@color/knowledge_accent"
+                    android:contentDescription="@null" />
+                <View android:layout_width="20dp" android:layout_height="1dp" android:background="@color/knowledge_accent" />
             </LinearLayout>
-
         </LinearLayout>
 
         <ImageView
             android:id="@+id/dragHandle"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_gravity="top|end"
             android:layout_margin="12dp"
-            android:alpha="0.4"
+            android:alpha="0.3"
             android:src="@drawable/ic_drag_handle"
             android:contentDescription="@string/drag_handle_desc" />
 

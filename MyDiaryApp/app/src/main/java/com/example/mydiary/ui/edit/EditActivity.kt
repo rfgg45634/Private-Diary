@@ -85,6 +85,10 @@ class EditActivity : AppCompatActivity() {
             binding.toolbarTypeIcon.setImageResource(
                 if (note.type == NoteType.KNOWLEDGE) R.drawable.ic_knowledge else R.drawable.ic_diary
             )
+            // 编辑页背景跟随模块：知识用绿色背景，日记用金色背景
+            binding.root.setBackgroundResource(
+                if (note.type == NoteType.KNOWLEDGE) R.drawable.bg_knowledge_page else R.drawable.bg_diary_page
+            )
             updateToolbarTitle()
 
             if (isLoaded) return@observe
